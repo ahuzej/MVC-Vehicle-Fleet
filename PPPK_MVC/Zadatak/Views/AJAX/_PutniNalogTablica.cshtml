@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Zadatak.Models.PutniNalogViewModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Stanje.TipNaloga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vozac.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vozilo.PunoIme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumOdlaska)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumDolaska)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojSati)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojDnevnica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IznosDnevnice)
+        </th>
+        <th>
+            Ukupno
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <span style="color: @item.Stanje.Boja">
+                    @Html.DisplayFor(modelItem => item.Stanje.TipNaloga)
+                </span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vozac.PunoIme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vozilo.PunoIme)
+            </td>
+            <td>
+            @if (item.DatumOdlaska.HasValue)
+            {
+                @item.DatumOdlaska.Value.ToString("dd/MM/yyyy")
+            }
+            </td>
+            <td>
+            @if (item.DatumDolaska.HasValue)
+            {
+                @item.DatumDolaska.Value.ToString("dd/MM/yyyy")
+            }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojSati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojDnevnica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IznosDnevnice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ukupno)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.IDPutniNalog }) |
+                @Html.ActionLink("Obriši", "Delete", new { id = item.IDPutniNalog }) |
+            </td>
+        </tr>
+    }
+
+</table>

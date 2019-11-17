@@ -1,0 +1,74 @@
+﻿@model Zadatak.Models.PutniNalog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PutniNalog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vozac.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vozac.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumOdlaska)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumOdlaska)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumDolaska)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumDolaska)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojSati)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojSati)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojDnevnica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojDnevnica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IznosDnevnice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IznosDnevnice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDPutniNalog }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

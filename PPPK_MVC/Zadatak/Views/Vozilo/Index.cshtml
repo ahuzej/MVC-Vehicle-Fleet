@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Zadatak.Models.Vozilo>
+
+@{
+    ViewBag.Title = "Pregled vozila";
+}
+
+<h2>Vozila</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GodinaProizvodnje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StanjeKilometra)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GodinaProizvodnje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StanjeKilometra)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.IDVozilo }) |
+                @Html.ActionLink("Detalji", "Details", new { id = item.IDVozilo }) |
+                @Html.ActionLink("Obriši", "Delete", new { id = item.IDVozilo })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@Html.ActionLink("Servisi", "Index", "Servis", null, null) |
+@Html.Partial("~/Views/Shared/_Navigation.cshtml")

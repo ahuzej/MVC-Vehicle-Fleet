@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Zadatak.Models.Servis>
+
+@{
+    ViewBag.Title = "Prikaz servisa vozila";
+}
+
+<h2>Servis vozila</h2>
+
+<p>
+    @Html.ActionLink("Dodaj novi", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vozilo.PunoIme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KategorijaServis.Naziv)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.Datum.HasValue)
+                {
+                    @item.Datum.Value.ToString("dd/MM/yyyy")
+                }
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Vozilo", new { id = item.VoziloID})">@Html.DisplayFor(modelItem => item.Vozilo.PunoIme)</a>
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena) kn
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.KategorijaServis.Naziv)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.IDServis }) |
+                @Html.ActionLink("Detalji", "Details", new { id = item.IDServis }) |
+                @Html.ActionLink("Obriši", "Delete", new { id = item.IDServis })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Vozila", "Index", "Vozilo", null, null) |
+@Html.Partial("~/Views/Shared/_Navigation.cshtml")

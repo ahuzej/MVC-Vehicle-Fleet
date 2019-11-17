@@ -1,0 +1,57 @@
+﻿@model Zadatak.Models.Servis
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Servis #@Html.DisplayFor(model => model.IDServis)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vozilo.PunoIme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vozilo.PunoIme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cijena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KategorijaServisID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategorijaServis.Naziv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Uredi", "Edit", new { id = Model.IDServis }) |
+    @Html.ActionLink("Povratak", "Index")
+</p>

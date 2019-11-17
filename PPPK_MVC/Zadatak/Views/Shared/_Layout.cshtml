@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/moj.css" rel="stylesheet" />
+    <script src="~/Scripts/moja.js"></script>
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <link href="~/Scripts/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-ui-1.12.1.custom/jquery-ui.theme.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.date.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

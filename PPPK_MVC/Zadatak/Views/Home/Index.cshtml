@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Početna";
+}
+
+<div class="jumbotrons">
+    <h1 style="text-align:center">ALGEBRA FLOTA VOZILA</h1>
+</div>
+
+<div id="mainDisplay">
+    <div class="element">
+        <input type="button" id="displayVozaciBtn" value="Vozaci" class="btn btn-dark" />
+    </div>
+    <div class="element">
+        <input type="button" id="displayPutniNalogBtn" value="Putni nalozi" class="btn btn-dark" />
+    </div>
+    <div class="element">
+        <input type="button" id="displayVozilaBtn" value="Vozila" class="btn btn-dark" />
+    </div>
+    <div class="element">
+        <input type="button" id="displayPostavkeBtn" value="Postavke" class="btn btn-dark" />
+    </div>
+</div>
+<hr />
+<div id="displayOptions">
+    <div id="displayVozaci" style="display:none">
+        <a href="@Url.Action("Create", "Vozac")">Dodaj vozača</a>
+        <a href="@Url.Action("Index", "Vozac")">Pregled</a>
+    </div>
+    <div id="displayPutniNalog" style="display:none">
+        <a href="@Url.Action("Create", "PutniNalog")">Dodaj putni nalog</a>
+        <a href="@Url.Action("Index", "PutniNalog")">Pregled</a>
+    </div>
+    <div id="displayVozila" style="display:none">
+        <a href="@Url.Action("Create", "Vozilo")">Dodaj vozilo</a>
+        <a href="@Url.Action("Index","Vozilo")">Pregled</a>
+
+    </div>
+    <div id="displayPostavke" style="display:none">
+        <a href="@Url.Action("Backup", "Postavke")">Izradi backup baze</a>
+        <a href="@Url.Action("Povrati","Postavke")">Povrat baze</a>
+    </div>
+</div>

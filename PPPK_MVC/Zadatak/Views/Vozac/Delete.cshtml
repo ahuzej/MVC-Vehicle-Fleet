@@ -1,0 +1,55 @@
+﻿@model Zadatak.Models.Vozac
+
+@{
+    ViewBag.Title = "Obriši vozača";
+}
+
+<h2>Brisanje vozača</h2>
+
+<div>
+    <h4>Vozac</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobitel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobitel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VozackaDozvola)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VozackaDozvola)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

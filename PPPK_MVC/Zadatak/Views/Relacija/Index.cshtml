@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Zadatak.Models.RelacijaViewModel>
+
+@{
+    ViewBag.Title = "Pregled relacija";
+}
+
+<h2>Relacije</h2>
+@Html.ActionLink("Dodaj novu", "Create")
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GradPolazakID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradDolazakID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PutniNalogID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kilometraza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrijevozIznos)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradPolazak.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradDolazak.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PutniNalog.PrikazNaloga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kilometraza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrijevozIznos)
+            </td>
+            <td>
+                @Html.ActionLink("Detalji", "Details", "Relacija", new { id = item.IDRelacija }, null) |
+                @Html.ActionLink("Obriši", "Delete", "Relacija", new { id = item.IDRelacija }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+@using (Html.BeginForm("ImportXML", "AJAX", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Hidden("type", 0)
+    <input type="file" name="file" value="Odaberi" />
+    <input type="submit" value="Dodaj" class="btn btn-primary">
+
+}
+@*<input type="button" value="Import from XML" class="btn btn-primary" id="btnImport" style="display:block;" />
+    <input type="file" id="fileInput" style="display:none;" />*@
+@Html.Partial("~/Views/Shared/_Navigation.cshtml")
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#btnImport').on('click', function () {
+                $('#fileInput').click();
+            }
+
+            );
+            $('#fileInput').change(function (e) {
+                var rawFile = new XMLHttpRequest();
+                rawFile.open("GET", "file:///D:/Faks/PPPK_MVC/Zadatak/Relations/REL-2.xml", false);
+                rawFile.onreadystatechange = function () {
+                    if (rawFile.readyState === 4) {
+                        if (rawFile.status === 200 || rawFile.status == 0) {
+                            var allText = rawFile.responseText;
+                            alert(allText);
+                        }
+                    }
+                }
+                rawFile.send(null);
+
+
+            });
+        });
+    </script>
+}

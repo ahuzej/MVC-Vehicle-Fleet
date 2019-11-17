@@ -1,0 +1,88 @@
+﻿@model Zadatak.Models.PutniNalogViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PutniNalog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vozac.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vozac.PunoIme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vozilo.PunoIme)
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.Vozilo.PunoIme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumOdlaska)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumOdlaska)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumDolaska)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumDolaska)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojSati)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojSati)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojDnevnica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojDnevnica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IznosDnevnice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IznosDnevnice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            @Html.ActionLink("Povratak", "Index")
+        </div>
+    }
+</div>

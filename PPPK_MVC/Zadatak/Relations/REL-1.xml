@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<relacija ID="1">
+  <gradPolazakId>3</gradPolazakId>
+  <gradDolazakId>5</gradDolazakId>
+  <putniNalogId>4</putniNalogId>
+  <kilometraza>200</kilometraza>
+  <prijevozIsnos>1000</prijevozIsnos>
+</relacija>

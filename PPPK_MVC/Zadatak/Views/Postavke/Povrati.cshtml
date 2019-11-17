@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Povrat baze";
+}
+
+<h2>Povrati</h2>
+
+@using (Html.BeginForm("ImportXML", "AJAX", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Hidden("type", 1)
+    <input type="file" name="file" value="Odaberi" />
+    <input type="submit" value="Povrat" class="btn btn-primary">
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<relacija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id>10</id>
+  <gradpolazakid>3</gradpolazakid>
+  <graddolazakid>5</graddolazakid>
+  <putninalogid>4</putninalogid>
+  <kilometraza>200</kilometraza>
+  <prijevoziznos>1000</prijevoziznos>
+</relacija>

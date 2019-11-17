@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Zadatak.Models.PutniNalogViewModel>
+
+@{
+    ViewBag.Title = "Pregled putnih naloga";
+}
+
+<h2>Putni nalozi</h2>
+<div class="row" style="margin-bottom:10px;">
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <select class="form-control" id="ddlFilterType">
+            <option value="@Html.DisplayNameFor(model => model.Vozac.FirstName)">Ime</option>
+            <option value="@Html.DisplayNameFor(model => model.Vozilo.PunoIme)">Vozilo</option>
+            <option value="@Html.DisplayNameFor(model => model.DatumOdlaska)">Datum odlaska</option>
+            <option value="@Html.DisplayNameFor(model => model.DatumDolaska)">Datum dolaska</option>
+            <option value="@Html.DisplayNameFor(model => model.BrojSati)">Broj sati</option>
+            <option value="@Html.DisplayNameFor(model => model.BrojDnevnica)">Broj dnevnica</option>
+            <option value="@Html.DisplayNameFor(model => model.IznosDnevnice)">Iznos dnevnice</option>
+        </select>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <input type="text" class="form-control" id="tbFilterText" />
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <input type="button" id="btnFilter" value="Filter" class="btn btn-primary" />
+        <input type="button" id="btnReset" value="Reset" class="btn btn-dark" />
+
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3">
+    </div>
+</div>
+
+@Html.Partial("~/Views/AJAX/_PutniNalogTablica.cshtml", Model)
+
+
+
+@Html.ActionLink("Relacije", "Index", "Relacija", null, null) |
+@Html.Partial("~/Views/Shared/_Navigation.cshtml")
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+
+            $('#btnFilter').click(function () {
+                var searchQuery = $('#tbFilterText').val();
+                var filterProp = $('#ddlFilterType').find(":selected").text();
+                $.ajax({
+                    url: "http://localhost:56803/AJAX/Filter",
+                    method: "GET",
+                    data: { 'searchQuery': searchQuery, 'filterProp': filterProp },
+                    success: (data) => {
+                        $('.table').html(data);
+                    }
+                });
+                console.log(searchQuery);
+            });
+
+            $('#btnReset').click(function () {
+                $.ajax({
+                    url: "http://localhost:56803/AJAX/Filter",
+                    method: "GET",
+                    success: (data) => {
+                        $('.table').html(data);
+                        $('#tbFilterText').val('');
+                    }
+                }); 
+            })
+        });
+    </script>
+
+}

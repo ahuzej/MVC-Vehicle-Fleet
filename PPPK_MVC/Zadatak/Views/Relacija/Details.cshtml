@@ -1,0 +1,92 @@
+﻿@model Zadatak.Models.RelacijaViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Relacija</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDRelacija)
+        </dt>
+
+        <dd id="idRel">
+            @Html.DisplayFor(model => model.IDRelacija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradPolazakID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradPolazak.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradDolazakID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradDolazak.Naziv)
+        </dd>
+
+        <dt>
+            Vozac
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PutniNalog.Vozac.PunoIme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometraza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometraza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrijevozIznos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrijevozIznos)
+        </dd>
+
+    </dl>
+
+        <input type="button" class="btn btn-primary" value="Export to XML" id="btnExport" />
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#btnExport').on('click', function () {
+
+                var idRel = $('#idRel').text().replace(/\s/g, "");
+                $.ajax({
+                    url: '/AJAX/ExportXML',
+                    data: { idRel: idRel },
+                    success: function () {
+                        window.location = '/AJAX/ExportXML?idRel=' + idRel;
+                    },
+                    fail: function () {
+                        alert('Error has occured.');
+                    }
+                })
+                console.log(idRel);
+            }
+
+            )
+        })
+    </script>    
+}

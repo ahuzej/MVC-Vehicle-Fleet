@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Zadatak.Models.Vozac>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vozaci</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobitel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VozackaDozvola)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobitel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VozackaDozvola)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.IDVozac }) |
+                @Html.ActionLink("Obriši", "Delete", new { id = item.IDVozac })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.Partial("~/Views/Shared/_Navigation.cshtml")

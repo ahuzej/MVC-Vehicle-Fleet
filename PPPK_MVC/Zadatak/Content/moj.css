@@ -1,0 +1,38 @@
+﻿body {
+
+}
+
+div#mainDisplay {
+    display:flex;
+    justify-content:space-around;
+}
+
+div.element input {
+    font-size:20px;
+}
+
+p {
+    margin-bottom:0px;
+}
+
+div.jumbotrons {
+    background-image: url('images/fleet-1080x675.jpg');
+    border: 3px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    margin-bottom:50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 10px 5px grey;
+}
+
+div .jumbotrons h1 {
+    background-color: rgba(0, 0, 0, 0.9);
+    width:50%;
+    font-weight:lighter;
+}
+
+div#displayOptions a {
+    display:block;
+}

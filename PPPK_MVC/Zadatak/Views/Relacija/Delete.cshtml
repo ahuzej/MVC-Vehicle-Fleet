@@ -1,0 +1,72 @@
+﻿@model Zadatak.Models.RelacijaViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RelacijaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDRelacija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDRelacija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradPolazakID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradPolazakID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradDolazakID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradDolazakID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PutniNalogID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PutniNalogID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometraza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometraza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrijevozIznos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrijevozIznos)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
